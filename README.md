@@ -1,5 +1,7 @@
 # Daily News
 
+![Daily News Demo](readme.gif)
+
 Live Demo: https://daily-news-theta-nine.vercel.app/
 
 ## Introduction

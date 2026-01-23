@@ -91,5 +91,12 @@ src/
     └── NewsCard.js    # Individual article component
 ```
 
+## Credits
+
+- **News Data**: Sourced via public RSS feeds from [BBC](https://www.bbc.com/news), [NYT](https://www.nytimes.com/), [Wired](https://www.wired.com/), and [TechCrunch](https://techcrunch.com/). All content belongs to respective publishers.
+- **Photography**: Fallback and placeholder imagery provided by [Unsplash](https://unsplash.com/).
+- **Demo GIF**: Generated via Google.
+- **Typography**: [Geist](https://vercel.com/font) by Vercel and standard System Serif fonts.
+
 ## License
 This project is open source and available for educational purposes.

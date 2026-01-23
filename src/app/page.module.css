@@ -8,12 +8,10 @@
   height: var(--header-height);
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #222;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
-  position: fixed;
+  border-bottom: 1px solid #1a1a1a;
+  position: sticky;
   top: 0;
-  width: 100%;
+  background: black;
   z-index: 10;
 }
 
@@ -24,61 +22,52 @@
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
   color: white;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
 
 .main {
   flex: 1;
-  padding-top: var(--header-height);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: 4rem;
 }
 
 .hero {
-  text-align: center;
-  padding: 6rem 0;
-  max-width: 900px;
-  margin: 0 auto;
+  text-align: left;
+  /* Editorial style aligns left usually */
+  padding: 4rem 0;
+  border-bottom: 1px solid #333;
+  margin-bottom: 4rem;
 }
 
 .title {
-  font-size: 5rem;
+  font-family: var(--font-serif);
+  font-size: 6rem;
+  line-height: 0.9;
+  font-weight: 300;
+  /* Thin and elegant */
   margin-bottom: 2rem;
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: -2px;
+  color: #fff;
 }
 
 .highlight {
+  font-style: italic;
+  /* Serif italic looks very editorial */
   color: #fff;
-  text-decoration: underline;
-  text-decoration-thickness: 4px;
-  text-underline-offset: 8px;
 }
 
 .subtitle {
-  font-size: 1.25rem;
-  color: #888;
-  margin-bottom: 3rem;
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 500px;
   line-height: 1.6;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.actions {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
 }
 
 @media (max-width: 768px) {
   .title {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 }

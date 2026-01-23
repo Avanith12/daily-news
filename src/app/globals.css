@@ -2,17 +2,16 @@
   --background: #000000;
   --foreground: #ffffff;
 
-  /* Monochrome Surface */
-  --surface: rgba(255, 255, 255, 0.05);
-  --surface-hover: rgba(255, 255, 255, 0.1);
-  --surface-border: rgba(255, 255, 255, 0.2);
-
-  /* Brand Colors - Monochrome */
+  /* Brand Colors - Pure Monochrome */
   --primary: #ffffff;
-  --accent: #888888;
+  --accent: #666666;
 
-  --font-sans: var(--font-geist-sans);
-  --max-width: 1400px;
+  /* Fonts - Editorial Style */
+  --font-serif: "Times New Roman", Times, Georgia, serif;
+  --font-sans: Helvetica, Arial, sans-serif;
+
+  --max-width: 1000px;
+  /* Tighter width for reading */
   --header-height: 80px;
 }
 
@@ -29,9 +28,22 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans);
   min-height: 100vh;
   overflow-x: hidden;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  /* Lighter weight for elegance */
+  letter-spacing: -0.02em;
 }
 
 a {
@@ -46,50 +58,11 @@ a {
   padding: 0 2rem;
 }
 
-/* Minimalist Card */
-.glass {
-  background: black;
-  border: 1px solid #333;
-  transition: border-color 0.3s ease;
-}
-
-.glass:hover {
-  border-color: #fff;
-}
-
-.btn-primary {
-  background: white;
-  color: black;
-  padding: 0.8rem 2rem;
-  border-radius: 4px;
-  /* Sharper edges for B&W usage */
-  font-weight: 600;
-  font-size: 0.95rem;
-  border: 1px solid white;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.btn-primary:hover {
-  background: black;
-  color: white;
-}
-
-/* Custom Scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: black;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #333;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #666;
 }

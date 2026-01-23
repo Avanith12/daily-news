@@ -12,7 +12,7 @@ export default function NewsCard({ article, onChat }) {
                         Read Article
                     </a>
                     <button onClick={() => onChat(article)} className={styles.chatBtn}>
-                        Chat about this
+                        Analyze Context
                     </button>
                 </div>
             </div>

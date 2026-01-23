@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import NewsCard from './NewsCard';
 import styles from './NewsFeed.module.css';
 
-export default function NewsFeed({ onChat }) {
+export default function NewsFeed() {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -34,7 +34,7 @@ export default function NewsFeed({ onChat }) {
     return (
         <div className={styles.grid}>
             {articles.map((article, index) => (
-                <NewsCard key={index} article={article} onChat={onChat} />
+                <NewsCard key={index} article={article} />
             ))}
         </div>
     );

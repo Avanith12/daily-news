@@ -11,9 +11,6 @@ export default function NewsCard({ article, onChat }) {
                     <a href={article.url} target="_blank" rel="noopener noreferrer" className={styles.readMore}>
                         Read Article
                     </a>
-                    <button onClick={() => onChat(article)} className={styles.chatBtn}>
-                        Analyze Context
-                    </button>
                 </div>
             </div>
         </article>

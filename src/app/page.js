@@ -45,6 +45,18 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [lastUpdated]);
 
+  // Developer easter egg
+  useEffect(() => {
+    console.log(
+      '%cDaily News',
+      'font-size: 24px; font-weight: bold; color: #fff; background: #000; padding: 10px 20px;'
+    );
+    console.log(
+      '%cMade by Avanith',
+      'font-size: 14px; color: #888; font-style: italic;'
+    );
+  }, []);
+
   return (
     <div className={styles.page}>
       <header className={styles.header}>

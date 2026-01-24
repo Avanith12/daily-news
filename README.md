@@ -47,6 +47,55 @@ The application currently aggregates open RSS feeds from:
 - **Wired (Science & Tech)**
 - **TechCrunch**
 
+## API Documentation
+
+The backend exposes a single REST endpoint for fetching news:
+
+**Endpoint:** `/api/news`  
+**Method:** GET  
+**Location:** `src/app/api/news/route.js`
+
+**Query Parameters:**
+- `cat` - Category filter (optional)
+  - `home` (default) - All news sources
+  - `tech` - Technology news
+  - `business` - Business news  
+  - `science` - Science news
+  - `ai` - AI-focused news
+- `q` - Search query (optional) - Filters articles by keyword in title or description
+
+**Example Requests:**
+```bash
+# Get all news (default)
+GET /api/news
+
+# Get tech news only
+GET /api/news?cat=tech
+
+# Search for "OpenAI"
+GET /api/news?q=OpenAI
+
+# Search within AI category
+GET /api/news?cat=ai&q=GPT
+```
+
+**Response Format:**
+```json
+{
+  "status": "ok",
+  "articles": [
+    {
+      "title": "Article Title",
+      "description": "Article description...",
+      "url": "https://...",
+      "urlToImage": "https://...",
+      "source": { "name": "Source Name" },
+      "publishedAt": "2024-01-01T00:00:00Z"
+    }
+  ]
+}
+```
+
 ## Local Development
 
 To run this project locally on your machine:

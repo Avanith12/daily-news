@@ -8,12 +8,21 @@ const CATEGORIES = [
   { id: 'tech', label: 'Tech' },
   { id: 'business', label: 'Business' },
   { id: 'science', label: 'Science' },
-  { id: 'ai', label: 'AI' }
+  { id: 'ai', label: 'AI' },
+  { id: 'saved', label: 'Saved' }
 ];
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [category, setCategory] = useState("home");
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  const handleBookmarkChange = () => {
+    // Refresh the feed if we're on the Saved tab
+    if (category === 'saved') {
+      setRefreshKey(prev => prev + 1);
+    }
+  };
 
   return (
     <div className={styles.page}>
@@ -57,7 +66,12 @@ export default function Home() {
             </div>
           </section>
 
-          <NewsFeed searchQuery={searchQuery} category={category} />
+          <NewsFeed
+            searchQuery={searchQuery}
+            category={category}
+            onBookmarkChange={handleBookmarkChange}
+            key={refreshKey}
+          />
         </div>
       </main>
     </div>

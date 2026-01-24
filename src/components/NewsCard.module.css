@@ -16,13 +16,34 @@
     flex: 1;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 .source {
     font-family: var(--font-sans);
     font-size: 0.75rem;
     color: #444;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 0.75rem;
+}
+
+.bookmarkBtn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #444;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.bookmarkBtn:hover {
+    color: #888;
 }
 
 .title {

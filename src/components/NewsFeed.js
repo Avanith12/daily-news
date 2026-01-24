@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import NewsCard from './NewsCard';
 import styles from './NewsFeed.module.css';
+import { getBookmarks } from '../utils/bookmarks';
 
-export default function NewsFeed({ searchQuery, category }) {
+export default function NewsFeed({ searchQuery, category, onBookmarkChange }) {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -11,7 +12,15 @@ export default function NewsFeed({ searchQuery, category }) {
         async function fetchNews() {
             setLoading(true);
             try {
-                // Build URL with query params
+                // Special handling for "Saved" category
+                if (category === 'saved') {
+                    const bookmarks = getBookmarks();
+                    setArticles(bookmarks);
+                    setLoading(false);
+                    return;
+                }
+
+                // Build URL with query params for other categories
                 const params = new URLSearchParams();
                 if (searchQuery) params.append('q', searchQuery);
                 if (category) params.append('cat', category);
@@ -44,10 +53,18 @@ export default function NewsFeed({ searchQuery, category }) {
     if (loading) return <div className={styles.loading}>Loading News...</div>;
     if (error) return <div className={styles.error}>Error: {error}</div>;
 
+    if (category === 'saved' && articles.length === 0) {
+        return <div className={styles.empty}>No saved articles yet. Bookmark articles to read them later.</div>;
+    }
+
     return (
         <div className={styles.grid}>
             {articles.map((article, index) => (
-                <NewsCard key={index} article={article} />
+                <NewsCard
+                    key={index}
+                    article={article}
+                    onBookmarkChange={onBookmarkChange}
+                />
             ))}
         </div>
     );

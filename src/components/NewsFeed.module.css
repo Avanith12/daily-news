@@ -8,9 +8,17 @@
 .loading,
 .error {
     text-align: center;
-    padding: 4rem;
-    color: #888;
-    font-size: 1.2rem;
+    padding: 4rem 2rem;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+    font-size: 1.1rem;
+    font-style: italic;
 }
 
 .error {

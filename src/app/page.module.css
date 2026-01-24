@@ -139,6 +139,15 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
+.timestamp {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: #444;
+  padding: 1rem 0 0 0;
+  font-style: italic;
+}
+
 @media (max-width: 768px) {
   .title {
     font-size: 3.5rem;

@@ -1,7 +1,8 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from "./page.module.css";
 import NewsFeed from "../components/NewsFeed";
+import { getRelativeTime } from "../utils/timeFormat";
 
 const CATEGORIES = [
   { id: 'home', label: 'Home' },
@@ -16,6 +17,8 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [category, setCategory] = useState("home");
   const [refreshKey, setRefreshKey] = useState(0);
+  const [lastUpdated, setLastUpdated] = useState(null);
+  const [relativeTime, setRelativeTime] = useState('');
 
   const handleBookmarkChange = () => {
     // Refresh the feed if we're on the Saved tab
@@ -23,6 +26,24 @@ export default function Home() {
       setRefreshKey(prev => prev + 1);
     }
   };
+
+  const handleUpdateTime = (time) => {
+    setLastUpdated(time);
+  };
+
+  // Update relative time every 30 seconds
+  useEffect(() => {
+    if (!lastUpdated) return;
+
+    const updateRelativeTime = () => {
+      setRelativeTime(getRelativeTime(lastUpdated));
+    };
+
+    updateRelativeTime();
+    const interval = setInterval(updateRelativeTime, 30000);
+
+    return () => clearInterval(interval);
+  }, [lastUpdated]);
 
   return (
     <div className={styles.page}>
@@ -63,6 +84,12 @@ export default function Home() {
                   </button>
                 ))}
               </div>
+
+              {lastUpdated && (
+                <div className={styles.timestamp}>
+                  Updated {relativeTime}
+                </div>
+              )}
             </div>
           </section>
 
@@ -70,6 +97,7 @@ export default function Home() {
             searchQuery={searchQuery}
             category={category}
             onBookmarkChange={handleBookmarkChange}
+            onUpdateTime={handleUpdateTime}
             key={refreshKey}
           />
         </div>

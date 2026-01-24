@@ -3,7 +3,7 @@ import NewsCard from './NewsCard';
 import styles from './NewsFeed.module.css';
 import { getBookmarks } from '../utils/bookmarks';
 
-export default function NewsFeed({ searchQuery, category, onBookmarkChange }) {
+export default function NewsFeed({ searchQuery, category, onBookmarkChange, onUpdateTime }) {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -17,6 +17,7 @@ export default function NewsFeed({ searchQuery, category, onBookmarkChange }) {
                     const bookmarks = getBookmarks();
                     setArticles(bookmarks);
                     setLoading(false);
+                    if (onUpdateTime) onUpdateTime(new Date());
                     return;
                 }
 
@@ -32,6 +33,8 @@ export default function NewsFeed({ searchQuery, category, onBookmarkChange }) {
 
                 if (data.status === 'ok' || data.articles) {
                     setArticles(data.articles);
+                    // Report update time
+                    if (onUpdateTime) onUpdateTime(new Date());
                 } else {
                     throw new Error(data.message || 'Failed to fetch');
                 }

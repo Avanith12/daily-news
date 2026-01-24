@@ -60,7 +60,15 @@
     color: #888;
     font-size: 1.1rem;
     line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.published {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: #555;
     margin-bottom: 1.5rem;
+    font-style: italic;
 }
 
 .actions {

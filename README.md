@@ -4,13 +4,7 @@
 
 **Live Demo:** [https://daily-news-theta-nine.vercel.app/](https://daily-news-theta-nine.vercel.app/)
 
----
-
-## About
-
-**Daily News** is a reaction against the cluttered, ad-heavy state of modern tech journalism. It is a minimalist, real-time news aggregator designed to strip away the noise and deliver raw information with an editorial aesthetic.
-
-Unlike standard aggregators that cache content, Daily News performs **real-time ingestion** of global RSS feeds the moment you load the page, ensuring you are always seeing the absolute latest headlines from the world's most trusted technology sources.
+Daily News is a minimalist news aggregator that delivers real-time technology headlines in a clean, distraction-free interface. Built with Next.js and powered by RSS feeds from top publishers, it offers instant access to breaking news without ads, trackers, or algorithmic curation.
 
 ## Key Features
 

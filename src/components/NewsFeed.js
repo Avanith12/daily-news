@@ -17,7 +17,7 @@ export default function NewsFeed({ searchQuery, category, onBookmarkChange, onUp
                     const bookmarks = getBookmarks();
                     setArticles(bookmarks);
                     setLoading(false);
-                    if (onUpdateTime) onUpdateTime(new Date());
+                    if (onUpdateTime) onUpdateTime(new Date(), bookmarks.length);
                     return;
                 }
 
@@ -33,8 +33,8 @@ export default function NewsFeed({ searchQuery, category, onBookmarkChange, onUp
 
                 if (data.status === 'ok' || data.articles) {
                     setArticles(data.articles);
-                    // Report update time
-                    if (onUpdateTime) onUpdateTime(new Date());
+                    // Report update time and count
+                    if (onUpdateTime) onUpdateTime(new Date(), data.articles.length);
                 } else {
                     throw new Error(data.message || 'Failed to fetch');
                 }

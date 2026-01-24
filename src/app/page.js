@@ -19,6 +19,7 @@ export default function Home() {
   const [refreshKey, setRefreshKey] = useState(0);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [relativeTime, setRelativeTime] = useState('');
+  const [articleCount, setArticleCount] = useState(0);
 
   const handleBookmarkChange = () => {
     // Refresh the feed if we're on the Saved tab
@@ -27,8 +28,9 @@ export default function Home() {
     }
   };
 
-  const handleUpdateTime = (time) => {
+  const handleUpdateTime = (time, count) => {
     setLastUpdated(time);
+    setArticleCount(count || 0);
   };
 
   // Update relative time every 30 seconds
@@ -99,7 +101,7 @@ export default function Home() {
 
               {lastUpdated && (
                 <div className={styles.timestamp}>
-                  Updated {relativeTime}
+                  Updated {relativeTime} • {articleCount} article{articleCount !== 1 ? 's' : ''}
                 </div>
               )}
             </div>

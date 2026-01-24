@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import NewsCard from './NewsCard';
 import styles from './NewsFeed.module.css';
 
-export default function NewsFeed({ searchQuery }) {
+export default function NewsFeed({ searchQuery, category }) {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -11,10 +11,12 @@ export default function NewsFeed({ searchQuery }) {
         async function fetchNews() {
             setLoading(true);
             try {
-                // Append search query if it exists
-                const url = searchQuery
-                    ? `/api/news?q=${encodeURIComponent(searchQuery)}`
-                    : '/api/news';
+                // Build URL with query params
+                const params = new URLSearchParams();
+                if (searchQuery) params.append('q', searchQuery);
+                if (category) params.append('cat', category);
+
+                const url = `/api/news?${params.toString()}`;
 
                 const res = await fetch(url);
                 const data = await res.json();
@@ -37,7 +39,7 @@ export default function NewsFeed({ searchQuery }) {
         }, 500);
 
         return () => clearTimeout(timeoutId);
-    }, [searchQuery]);
+    }, [searchQuery, category]);
 
     if (loading) return <div className={styles.loading}>Loading News...</div>;
     if (error) return <div className={styles.error}>Error: {error}</div>;

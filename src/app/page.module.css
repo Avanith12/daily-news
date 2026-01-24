@@ -35,8 +35,7 @@
 }
 
 .hero {
-  text-align: left;
-  /* Editorial style aligns left usually */
+  text-align: center;
   padding: 4rem 0;
   border-bottom: 1px solid #333;
   margin-bottom: 4rem;
@@ -47,14 +46,46 @@
   font-size: 6rem;
   line-height: 0.9;
   font-weight: 300;
-  /* Thin and elegant */
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   color: #fff;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+
+.searchWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.searchInput {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
+  color: white;
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  width: 100%;
+  max-width: 400px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.searchInput:focus {
+  border-bottom-color: #fff;
+}
+
+.searchInput::placeholder {
+  color: #333;
 }
 
 .highlight {
   font-style: italic;
-  /* Serif italic looks very editorial */
   color: #fff;
 }
 
@@ -66,8 +97,59 @@
   line-height: 1.6;
 }
 
+.categories {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #222;
+  align-items: center;
+  justify-content: center;
+}
+
+.catBtn {
+  background: none;
+  border: none;
+  border-right: 1px solid #222;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #555;
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.catBtn:first-child {
+  padding-left: 0;
+}
+
+.catBtn:last-child {
+  border-right: none;
+}
+
+.catBtn:hover {
+  color: #aaa;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.activeCat {
+  color: #fff;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+}
+
 @media (max-width: 768px) {
   .title {
     font-size: 3.5rem;
+  }
+
+  .categories {
+    flex-wrap: wrap;
+  }
+
+  .catBtn {
+    font-size: 0.75rem;
+    padding: 0.6rem 1rem;
   }
 }

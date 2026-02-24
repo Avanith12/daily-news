@@ -144,3 +144,5 @@ src/
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+check oout the daily newws
